@@ -25,6 +25,7 @@ const elements = {
   apiStatusBadge: document.getElementById("api-status-badge"),
 
   // Views
+  viewLoading: document.getElementById("view-loading"),
   viewAuth: document.getElementById("view-auth"),
   viewTriage: document.getElementById("view-triage"),
   viewAdmin: document.getElementById("view-admin"),
@@ -103,6 +104,7 @@ function hideAlert(element) {
 // View Navigation
 function setView(viewName) {
   state.activeTab = viewName;
+  elements.viewLoading.classList.add("hidden");
   elements.viewAuth.classList.add("hidden");
   elements.viewTriage.classList.add("hidden");
   elements.viewAdmin.classList.add("hidden");
@@ -134,11 +136,13 @@ function updateAuthUI() {
         : "bg-slate-100 text-slate-800"
     }`;
 
+    elements.navTriageBtn.classList.remove("hidden");
     elements.navAdminBtn.classList.toggle("hidden", state.user.role !== "admin");
     elements.navAuthBtn.classList.add("hidden");
     elements.navLogoutBtn.classList.remove("hidden");
   } else {
     elements.navUserBadge.classList.add("hidden");
+    elements.navTriageBtn.classList.add("hidden");
     elements.navAdminBtn.classList.add("hidden");
     elements.navAuthBtn.classList.remove("hidden");
     elements.navLogoutBtn.classList.add("hidden");
@@ -513,6 +517,7 @@ function initEventListeners() {
 
 // Application Boot
 document.addEventListener("DOMContentLoaded", () => {
+  elements.viewLoading.textContent = UI_MESSAGES.auth.checkingSession;
   initEventListeners();
   checkCurrentSession();
 });

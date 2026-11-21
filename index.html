@@ -24,7 +24,7 @@
 
       <!-- Navigation Tabs -->
       <nav class="flex items-center space-x-2 sm:space-x-4 text-sm font-medium">
-        <button id="nav-triage-btn" class="px-3 py-1.5 rounded-md text-slate-700 hover:text-indigo-600 hover:bg-slate-100 transition-colors">
+        <button id="nav-triage-btn" class="hidden px-3 py-1.5 rounded-md text-slate-700 hover:text-indigo-600 hover:bg-slate-100 transition-colors">
           Email Triage
         </button>
         <button id="nav-admin-btn" class="px-3 py-1.5 rounded-md text-slate-700 hover:text-indigo-600 hover:bg-slate-100 transition-colors hidden">
@@ -59,7 +59,10 @@
     <!-- ========================================== -->
     <!-- VIEW: AUTHENTICATION (Sign In / Register)  -->
     <!-- ========================================== -->
-    <section id="view-auth" class="max-w-md mx-auto my-8">
+    <!-- Shown until the session check finishes (Render may take a minute to wake up) -->
+    <section id="view-loading" class="max-w-md mx-auto my-16 text-center text-sm text-slate-500" aria-live="polite"></section>
+
+    <section id="view-auth" class="hidden max-w-md mx-auto my-8">
       <div class="bg-white p-6 sm:p-8 rounded-xl border border-slate-200 shadow-sm">
         
         <!-- Tabs -->
@@ -143,7 +146,7 @@
     <!-- ========================================== -->
     <!-- VIEW: EMAIL TRIAGE (User Landing Page)     -->
     <!-- ========================================== -->
-    <section id="view-triage" class="space-y-8">
+    <section id="view-triage" class="hidden space-y-8">
       
       <!-- Top Alert Notification -->
       <div id="triage-alert" class="hidden"></div>

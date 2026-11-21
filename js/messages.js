@@ -20,6 +20,7 @@ export const UI_MESSAGES = {
     registerSuccess: "Account created successfully! Please sign in.",
     logoutSuccess: "Signed out successfully.",
     sessionExpired: "Your session has expired. Please sign in again.",
+    checkingSession: "Connecting to the server… The first request can take up to a minute.",
   },
   triage: {
     heading: "Analyze Message for Phishing",
